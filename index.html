@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>地下採掘王 v11.6</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div>
+        <p class="eyebrow">MINING SIMULATOR</p>
+        <h1>地下採掘王 <span>v11.6</span></h1>
+      </div>
+      <div class="money"><small>所持金</small><strong id="money">5,000 G</strong></div>
+    </header>
+
+    <section class="stats">
+      <div><small>階層</small><b id="layer">1 / 500</b></div>
+      <div><small>ツルハシ Lv.</small><b id="tool">1</b></div>
+      <div><small>ロボット Lv.</small><b id="robot">未所持</b></div>
+      <div><small>バッグ</small><b id="bag">0 / 23</b></div>
+    </section>
+
+    <section class="mine-panel">
+      <div class="panel-heading">
+        <div><h2>採掘エリア</h2><p id="mineHint">マスをタップして移動・採掘</p></div>
+        <div class="layer-progress"><span id="progressText">0 / 70</span><div class="progress"><i id="progressBar"></i></div></div>
+      </div>
+      <div id="grid" class="grid" aria-label="採掘エリア"></div>
+      <div class="legend">
+        <span><i class="player-dot"></i>プレイヤー</span>
+        <span><i class="robot-dot"></i>ロボット</span>
+        <span>💎 宝石</span>
+      </div>
+      <div class="actions">
+        <button id="sellBtn" class="primary">バッグを売却</button>
+        <button id="nextLayerBtn" disabled>次の階層へ</button>
+      </div>
+      <p id="message" class="message" role="status">採掘を始めよう！</p>
+    </section>
+
+    <section class="shop">
+      <h2>ショップ</h2>
+      <div class="shop-row">
+        <div><b>ツルハシ強化</b><small>採掘性能を強化（最大 Lv.500）</small><strong id="toolPrice">価格計算中</strong></div>
+        <button id="toolBuy">強化</button>
+      </div>
+      <div class="shop-row">
+        <div><b>バッグ拡張</b><small>容量を +15 増やす</small><strong id="bagPrice">価格計算中</strong></div>
+        <button id="bagBuy">拡張</button>
+      </div>
+      <div class="shop-row">
+        <div><b>ロボット購入・強化</b><small>自動で採掘する（最大 Lv.500）</small><strong id="robotPrice">75,000 G</strong></div>
+        <button id="robotBuy">購入 / 強化</button>
+      </div>
+      <div class="shop-row">
+        <div><b>自動売却</b><small>バッグが満杯になると自動で売却</small><strong>100,000 G（買い切り）</strong></div>
+        <button id="autoSellBuy">購入</button>
+      </div>
+    </section>
+
+    <section class="automation">
+      <h2>自動化設定</h2>
+      <label><input id="autoBag" type="checkbox"> お金が足りる限りバッグを自動拡張</label>
+      <label><input id="autoTool" type="checkbox"> お金が足りる限りツルハシを自動強化</label>
+      <label><input id="autoRobot" type="checkbox"> お金が足りる限りロボットを自動強化</label>
+      <p class="note">自動化はゲームを開いている間に動作します。</p>
+    </section>
+
+    <section class="prestige">
+      <h2>転生</h2>
+      <p>500階層を突破すると転生できる。転生すると初期状態に戻る代わりに、永続ボーナスを獲得！</p>
+      <p id="prestigeInfo">現在の転生回数：0回</p>
+      <button id="prestigeBtn" disabled>転生する</button>
+    </section>
+    <footer>進行状況はこのブラウザに自動保存されます。</footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
